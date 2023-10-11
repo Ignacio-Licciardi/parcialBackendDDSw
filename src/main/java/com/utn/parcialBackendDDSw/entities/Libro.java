@@ -29,7 +29,7 @@ public class Libro extends Base {
     @Column(name = "titulo")
     private String titulo;
 
-    //Libro a autor
+    //Libro a autor - Relacion
     @ManyToMany(cascade = CascadeType.REFRESH)
     private List<Autor> autores;
 
