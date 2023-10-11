@@ -35,3 +35,9 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jar {
+	manifest {
+		attributes 'ParcialBackendDdSwAplication': 'com.utn.parcialBackendDDSw.ParcialBackendDdSwAplication'
+	}
+}
