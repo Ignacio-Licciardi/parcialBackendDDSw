@@ -19,5 +19,14 @@ public class AutorServiceImpl extends BaseServiceImpl<Autor, Long> implements Au
     }
 
 
-
+    @Override
+    public List <Autor> searchAutor(String filtro) throws Exception{
+        try{
+            List<Autor> autores = autorRepository.searchAutor(filtro);
+            return autores;
+        }
+        catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }

@@ -20,4 +20,15 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
     }
 
 
+    @Override
+    public List<Persona> searchPersona(String filtro) throws Exception {
+        try {
+            //JQPL
+            List<Persona> personas = personaRepository.searchPersona(filtro);
+            return personas;
+        }
+        catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }

@@ -19,4 +19,14 @@ public class LocalidadServiceImpl extends BaseServiceImpl<Localidad, Long> imple
     }
 
 
+    @Override
+    public List<Localidad> searchLocalidad(String filtro) throws Exception {
+        try {
+            List<Localidad> localidades = localidadRepository.searchLocalidad(filtro);
+            return localidades;
+        }
+        catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }
