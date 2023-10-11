@@ -1,9 +1,12 @@
 package com.utn.parcialBackendDDSw.services;
 
 import com.utn.parcialBackendDDSw.entities.Autor;
+import com.utn.parcialBackendDDSw.entities.Persona;
 import com.utn.parcialBackendDDSw.repositories.AutorRepository;
 import com.utn.parcialBackendDDSw.repositories.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +26,19 @@ public class AutorServiceImpl extends BaseServiceImpl<Autor, Long> implements Au
     public List <Autor> searchAutor(String filtro) throws Exception{
         try{
             List<Autor> autores = autorRepository.searchAutor(filtro);
+            return autores;
+        }
+        catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    //PAGINACION
+
+    @Override
+    public Page<Autor> searchAutorPaged(String filtro, Pageable pageable) throws Exception {
+        try {
+            Page<Autor> autores = autorRepository.searchAutorPaged(filtro, pageable);
             return autores;
         }
         catch (Exception e){
